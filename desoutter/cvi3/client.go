@@ -36,13 +36,10 @@ type CVI3Client struct {
 	recv_flag			bool
 	mtx_write			sync.Mutex
 	RemoteConn			net.Conn
-	HMI					HMI
 }
 
 // 启动客户端
 func (client *CVI3Client) Start() {
-	client.HMI = HMI{}
-	client.HMI.URL = client.Config.HMI
 
 	client.Connect()
 
