@@ -3,8 +3,6 @@ package cvi3
 import (
 	"fmt"
 	"strconv"
-	"time"
-	"strings"
 	"encoding/xml"
 )
 
@@ -178,7 +176,4 @@ func GeneratePacket(serial uint, typ uint, xmlpacket string) (string) {
 	return fmt.Sprintf("%s%s", header_str, xmlpacket)
 }
 
-func GetDateTime() (string, string) {
-	stime := strings.Split(time.Now().Format("2006-01-02 15:04:05"), " ")
-	return stime[0], stime[1]
-}
+

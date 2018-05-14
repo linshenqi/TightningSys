@@ -18,15 +18,14 @@ const (
 	STATUS_OFFLINE = "offline"
 )
 
-type CVIConfig struct {
+type CVI3Config struct {
 	SN 		string		//控制器序列号，须和后端配置一致
 	IP 		string		//控制器ip
 	Port 	uint		//控制器端口
-	HMI 	string		//对应HMI的url，用于数据推送
 }
 
 type CVI3Client struct {
-	Config 				*CVIConfig
+	Config 				CVI3Config
 	Conn				net.Conn
 	serial_no			uint				// 1 ~ 9999
 	Results				ResultQueue
@@ -36,6 +35,7 @@ type CVI3Client struct {
 	recv_flag			bool
 	mtx_write			sync.Mutex
 	RemoteConn			net.Conn
+	Parent				*CVI3
 }
 
 // 启动客户端
@@ -84,11 +84,11 @@ func (client *CVI3Client) PSet(pset int, workorder_id int, screw_id string) (uin
 
 	//time.Sleep(3 * time.Second)
 
-	sdate, stime := cvi.GetDateTime()
-	xml_pset := fmt.Sprintf(cvi.Xml_pset, sdate, stime, client.Config.SN, workorder_id, screw_id, pset)
+	sdate, stime := GetDateTime()
+	xml_pset := fmt.Sprintf(Xml_pset, sdate, stime, client.Config.SN, workorder_id, screw_id, pset)
 
 	serial := client.get_serial()
-	pset_packet := cvi.GeneratePacket(serial, cvi.Header_type_request_with_reply, xml_pset)
+	pset_packet := GeneratePacket(serial, Header_type_request_with_reply, xml_pset)
 	fmt.Printf("%s\n", pset_packet)
 
 	client.Results.update(serial, "")
@@ -121,8 +121,8 @@ func (client *CVI3Client) Read(){
 		fmt.Printf("%s\n", msg)
 
 		// 处理应答
-		header_str := msg[0: cvi.HEADER_LEN]
-		header := cvi.CVI3Header{}
+		header_str := msg[0: HEADER_LEN]
+		header := CVI3Header{}
 		header.Deserialize(header_str)
 
 		client.Results.update(header.MID, header_str)
@@ -133,11 +133,11 @@ func (client *CVI3Client) Read(){
 // 订阅数据
 func (client *CVI3Client) subscribe() {
 
-	sdate, stime := cvi.GetDateTime()
-	xml_subscribe := fmt.Sprintf(cvi.Xml_subscribe, sdate, stime)
+	sdate, stime := GetDateTime()
+	xml_subscribe := fmt.Sprintf(Xml_subscribe, sdate, stime)
 
 	serial := client.get_serial()
-	subscribe_packet := cvi.GeneratePacket(serial, cvi.Header_type_request_with_reply, xml_subscribe)
+	subscribe_packet := GeneratePacket(serial, Header_type_request_with_reply, xml_subscribe)
 
 	client.Results.update(serial, "")
 
@@ -157,7 +157,7 @@ func (client *CVI3Client) keep_alive() {
 		}
 
 		serial := client.get_serial()
-		keep_alive_packet := cvi.GeneratePacket(serial, cvi.Header_type_request_with_reply, cvi.Xml_heart_beat)
+		keep_alive_packet := GeneratePacket(serial, Header_type_request_with_reply, Xml_heart_beat)
 		client.Results.update(serial, "")
 		n, err := client.SafeWrite([]byte(keep_alive_packet))
 		if err != nil {
@@ -223,7 +223,7 @@ func (client *CVI3Client) update_status(status string) {
 
 	if status != client.Status {
 		client.Status = status
-
+		go client.Parent.FUNCStatus(client.Config.SN, client.Status)
 		fmt.Printf("civ3:%s %s\n", client.Config.SN, client.Status)
 
 		if client.Status == STATUS_OFFLINE {
@@ -234,11 +234,11 @@ func (client *CVI3Client) update_status(status string) {
 			go client.Connect()
 		}
 
-		// 将最新状态推送给hmi
-		s := ResponseStatus{}
-		s.SN = client.Config.SN
-		s.Status = client.Status
-		go client.HMI.PushStauts(s)
+		//// 将最新状态推送给hmi
+		//s := ResponseStatus{}
+		//s.SN = client.Config.SN
+		//s.Status = client.Status
+		//go client.HMI.PushStauts(s)
 	}
 
 }
