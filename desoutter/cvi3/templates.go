@@ -1,4 +1,4 @@
-package cvi
+package cvi3
 
 const (
 	// 心跳包
