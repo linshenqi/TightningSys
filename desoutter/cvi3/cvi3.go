@@ -68,7 +68,7 @@ func (cvi3 *CVI3) StartService(port uint) error {
 }
 
 // 设置拧接程序
-func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int) (error) {
+func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, count int) (error) {
 	// 判断控制器是否存在
 	cvi3_client, exist := cvi3.clients[sn]
 	if !exist {
@@ -83,7 +83,7 @@ func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int) (error) {
 
 	// 设定pset并判断控制器响应
 	screw_id := GenerateID()
-	serial, err := cvi3_client.PSet(pset, workorder_id, screw_id)
+	serial, err := cvi3_client.PSet(pset, workorder_id, screw_id, count)
 	if err != nil {
 		// 控制器请求失败
 		return errors.New(ERR_CVI3_REQUEST)
