@@ -118,7 +118,7 @@ func (client *CVI3Client) Read(){
 
 		msg := string(buffer[0:n])
 
-		fmt.Printf("%s\n", msg)
+		//fmt.Printf("%s\n", msg)
 
 		// 处理应答
 		header_str := msg[0: HEADER_LEN]

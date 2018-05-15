@@ -4,7 +4,6 @@ import (
 	"net"
 	"strings"
 	"time"
-	"fmt"
 	"errors"
 )
 
@@ -18,7 +17,7 @@ const (
 )
 
 type CVI3 struct {
-	configs		  []CVI3Config
+	Configs		  []CVI3Config
 	server 		  *CVI3Server
 	clients   	  map[string]*CVI3Client
 	FUNCStatus 	  FUNC_STATUS
@@ -36,13 +35,14 @@ func (cvi3 *CVI3) RegisterCallBack(func_status FUNC_STATUS, func_recv FUNC_RECV)
 
 // 服务配置
 func (cvi3 *CVI3) Config(configs []CVI3Config) error {
-	cvi3.configs = configs
+	cvi3.Configs = []CVI3Config{}
+	cvi3.Configs = configs
 
 	return nil
 }
 
 // 启动服务
-func (cvi3 *CVI3) StartService(port uint) error {
+func (cvi3 *CVI3) StartService(port string) error {
 	cvi3.server = &CVI3Server{}
 	cvi3.server.Parent = cvi3
 
@@ -56,9 +56,10 @@ func (cvi3 *CVI3) StartService(port uint) error {
 	}
 
 	// 根据配置启动客户端
-	for _, conf := range cvi3.configs {
+	for _, conf := range cvi3.Configs {
 		client := CVI3Client{}
 		client.Config = conf
+		client.Parent = cvi3
 
 		cvi3.clients[conf.SN] = &client
 		go client.Start()
@@ -68,7 +69,7 @@ func (cvi3 *CVI3) StartService(port uint) error {
 }
 
 // 设置拧接程序
-func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, count int) (error) {
+func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, result_id string, count int) (error) {
 	// 判断控制器是否存在
 	cvi3_client, exist := cvi3.clients[sn]
 	if !exist {
@@ -82,8 +83,8 @@ func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, count int) (error)
 	}
 
 	// 设定pset并判断控制器响应
-	screw_id := GenerateID()
-	serial, err := cvi3_client.PSet(pset, workorder_id, screw_id, count)
+	//screw_id := GenerateID()
+	serial, err := cvi3_client.PSet(pset, workorder_id, result_id, count)
 	if err != nil {
 		// 控制器请求失败
 		return errors.New(ERR_CVI3_REQUEST)
@@ -103,7 +104,7 @@ func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, count int) (error)
 		return errors.New(ERR_CVI3_REPLY_TIMEOUT)
 	}
 
-	fmt.Printf("reply_header:%s\n", header_str)
+	//fmt.Printf("reply_header:%s\n", header_str)
 	header := CVI3Header{}
 	header.Deserialize(header_str)
 	if !header.Check() {

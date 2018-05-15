@@ -32,6 +32,7 @@ func (cvi3_server *CVI3Server) read(sn string) {
 
 		n, err := c.Read(buffer)
 		if err != nil {
+			fmt.Printf("%s\n", err.Error())
 			break
 		}
 		msg := string(buffer[0:n])
@@ -53,7 +54,7 @@ func (cvi3_server *CVI3Server) read(sn string) {
 			rest -= n
 		}
 
-		//fmt.Printf("%s\n", body)
+		fmt.Printf("%s\n", body)
 		go cvi3_server.Parent.FUNCRecv(body)
 
 		if header.TYP == Header_type_request_with_reply || header.TYP == Header_type_keep_alive {
@@ -73,8 +74,8 @@ func (cvi3_server *CVI3Server) read(sn string) {
 	}
 }
 
-func (cvi3_server *CVI3Server) Start(port uint) error {
-	l, err := net.Listen("tcp", string(port))
+func (cvi3_server *CVI3Server) Start(port string) error {
+	l, err := net.Listen("tcp", port)
 	if err != nil {
 		return err
 	}

@@ -5,7 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desoutter/cvi3/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/desoutter/cvi3/client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desoutter/cvi3/cvi3.go" beforeDir="false" afterPath="$PROJECT_DIR$/desoutter/cvi3/cvi3.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desoutter/cvi3/templates.go" beforeDir="false" afterPath="$PROJECT_DIR$/desoutter/cvi3/templates.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desoutter/cvi3/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/desoutter/cvi3/server.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +19,8 @@
       <file leaf-file-name="client.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/desoutter/cvi3/client.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="72" column="20" lean-forward="true" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+            <state relative-caret-position="539">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#14#54#0" expanded="true" />
               </folding>
@@ -28,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cvi3.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cvi3.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/desoutter/cvi3/cvi3.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+            <state relative-caret-position="496">
+              <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
               <folding>
                 <element signature="e#14#42#0" expanded="true" />
               </folding>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/desoutter/cvi3/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="75" column="55" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+            <state relative-caret-position="208">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="e#14#38#0" expanded="true" />
               </folding>
@@ -94,6 +94,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>cvi3result</find>
+      <find>reply_header</find>
+      <find>update</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
@@ -107,10 +109,10 @@
         <option value="$PROJECT_DIR$/Godeps" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/protocol.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/tools.go" />
-        <option value="$PROJECT_DIR$/desoutter/cvi3/server.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/templates.go" />
-        <option value="$PROJECT_DIR$/desoutter/cvi3/client.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/cvi3.go" />
+        <option value="$PROJECT_DIR$/desoutter/cvi3/client.go" />
+        <option value="$PROJECT_DIR$/desoutter/cvi3/server.go" />
       </list>
     </option>
   </component>
@@ -186,6 +188,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
@@ -193,7 +196,6 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -208,6 +210,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -220,6 +227,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/templates.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -240,39 +254,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/server.go">
+    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/cvi3.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="75" column="55" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+        <state relative-caret-position="496">
+          <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
           <folding>
-            <element signature="e#14#38#0" expanded="true" />
+            <element signature="e#14#42#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/templates.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/desoutter/cvi3/client.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="72" column="20" lean-forward="true" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+        <state relative-caret-position="539">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#14#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/cvi3.go">
+    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+        <state relative-caret-position="208">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
-            <element signature="e#14#42#0" expanded="true" />
+            <element signature="e#14#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
