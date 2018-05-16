@@ -81,8 +81,8 @@ type FAS struct {
 type PAR struct {
 	SN string `xml:"PRT"`
 	Workorder_id int `xml:"PI1"`
-	Screw_id string `xml:"PI2"`
-	Test string `xml:"STC"`
+	Result_id string `xml:"PI2"`
+	Count int `xml:"STC"`
 	Result string `xml:"PSC"`
 	FAS FAS `xml:"FAS"`
 }

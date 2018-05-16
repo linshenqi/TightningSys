@@ -80,12 +80,12 @@ func (client *CVI3Client) Connect() {
 }
 
 // PSet程序设定
-func (client *CVI3Client) PSet(pset int, workorder_id int, screw_id string, count int) (uint, error) {
+func (client *CVI3Client) PSet(pset int, workorder_id int, reseult_id int, count int) (uint, error) {
 
 	//time.Sleep(3 * time.Second)
 
 	sdate, stime := GetDateTime()
-	xml_pset := fmt.Sprintf(Xml_pset, sdate, stime, client.Config.SN, workorder_id, screw_id, count, pset)
+	xml_pset := fmt.Sprintf(Xml_pset, sdate, stime, client.Config.SN, workorder_id, reseult_id, count, pset)
 
 	serial := client.get_serial()
 	pset_packet := GeneratePacket(serial, Header_type_request_with_reply, xml_pset)

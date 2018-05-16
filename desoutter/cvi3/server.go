@@ -54,7 +54,6 @@ func (cvi3_server *CVI3Server) read(sn string) {
 			rest -= n
 		}
 
-		fmt.Printf("%s\n", body)
 		go cvi3_server.Parent.FUNCRecv(body)
 
 		if header.TYP == Header_type_request_with_reply || header.TYP == Header_type_keep_alive {

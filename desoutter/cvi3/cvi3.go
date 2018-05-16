@@ -69,7 +69,7 @@ func (cvi3 *CVI3) StartService(port string) error {
 }
 
 // 设置拧接程序
-func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, result_id string, count int) (error) {
+func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, result_id int, count int) (error) {
 	// 判断控制器是否存在
 	cvi3_client, exist := cvi3.clients[sn]
 	if !exist {
