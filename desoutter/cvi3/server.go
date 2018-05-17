@@ -36,6 +36,9 @@ func (cvi3_server *CVI3Server) read(sn string) {
 			break
 		}
 		msg := string(buffer[0:n])
+		if len(msg) < HEADER_LEN {
+			continue
+		}
 		//fmt.Printf("%s\n", msg)
 
 		header := CVI3Header{}
