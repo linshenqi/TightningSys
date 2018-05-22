@@ -16,6 +16,11 @@ const (
 	//ERR_DB = "cvi3 reply presave failed"
 )
 
+type ControllerStatus struct {
+	SN string `json:"controller_sn"`
+	Status string `json:"status"`
+}
+
 type CVI3 struct {
 	Configs		  []CVI3Config
 	server 		  *CVI3Server
@@ -67,6 +72,20 @@ func (cvi3 *CVI3) StartService(port string) error {
 
 	return nil
 }
+
+// 取得控制器状态
+//func (cvi3 *CVI3) GetControllersStatus(sn string) []ControllerStatus {
+//	status := []ControllerStatus{}
+//	if sn != "" {
+//
+//	} else {
+//
+//	}
+//
+//	for k,v := range cvi3.clients {
+//
+//	}
+//}
 
 // 设置拧接程序
 func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, result_id int, count int) (error) {

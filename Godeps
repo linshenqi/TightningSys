@@ -2,3 +2,4 @@ github.com/golang/crypto 94e3fad7f1b4eed4ec147751ad6b4c4d33f00611
 github.com/golang/net 2491c5de3490fced2f6cff376127c667efeed857
 github.com/golang/sys d0faeb539838e250bd0a9db4182d48d4a1915181
 github.com/golang/text 5c1cf69b5978e5a34c5f9ba09a83e56acc4b7877
+github.com/satori/go.uuid 36e9d2ebbde5e3f13ab2e25625fd453271d6522e
