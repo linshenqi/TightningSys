@@ -8,7 +8,7 @@ import (
 )
 
 func GenerateID() (string) {
-	u4 := uuid.NewV4()
+	u4, _ := uuid.NewV4()
 	return base64.RawURLEncoding.EncodeToString(u4.Bytes())
 }
 

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="523940aa-d2c4-4cbf-b8fb-a2b533eae861" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Godeps" beforeDir="false" afterPath="$PROJECT_DIR$/Godeps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desoutter/cvi3/cvi3.go" beforeDir="false" afterPath="$PROJECT_DIR$/desoutter/cvi3/cvi3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desoutter/cvi3/tools.go" beforeDir="false" afterPath="$PROJECT_DIR$/desoutter/cvi3/tools.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,20 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tools.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tools.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/desoutter/cvi3/tools.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="180">
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+              <folding>
+                <element signature="e#14#91#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Godeps" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Godeps" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Godeps">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="65" lean-forward="true" selection-start-column="65" selection-end-column="65" />
+            <state relative-caret-position="72">
+              <caret line="4" column="66" lean-forward="true" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -115,13 +116,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/desoutter/cvi3/tools.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/protocol.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/client.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/templates.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/server.go" />
         <option value="$PROJECT_DIR$/desoutter/cvi3/cvi3.go" />
         <option value="$PROJECT_DIR$/Godeps" />
+        <option value="$PROJECT_DIR$/desoutter/cvi3/tools.go" />
       </list>
     </option>
   </component>
@@ -276,6 +277,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding>
+            <element signature="e#14#91#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -525,17 +529,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/tools.go">
+    <entry file="file://$PROJECT_DIR$/Godeps">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="72">
+          <caret line="4" column="66" lean-forward="true" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Godeps">
+    <entry file="file://$PROJECT_DIR$/desoutter/cvi3/tools.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" lean-forward="true" selection-start-column="65" selection-end-column="65" />
+        <state relative-caret-position="180">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+          <folding>
+            <element signature="e#14#91#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
