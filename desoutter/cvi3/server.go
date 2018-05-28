@@ -3,6 +3,7 @@ package cvi3
 import (
 	"net"
 	"fmt"
+	"time"
 )
 
 type CVI3Server struct {
@@ -11,7 +12,18 @@ type CVI3Server struct {
 	Parent *CVI3
 }
 
-func (cvi3_server *CVI3Server) listen() {
+func (cvi3_server *CVI3Server) listen(port string) {
+	for {
+		l, err := net.Listen("tcp", port)
+		if err == nil {
+			cvi3_server.Listener = l
+			break
+		}
+
+		time.Sleep(300 * time.Millisecond)
+	}
+
+
 	for {
 		c, err := cvi3_server.Accept()
 		if err != nil {
@@ -77,15 +89,9 @@ func (cvi3_server *CVI3Server) read(sn string) {
 }
 
 func (cvi3_server *CVI3Server) Start(port string) error {
-	l, err := net.Listen("tcp", port)
-	if err != nil {
-		return err
-	}
-
-	cvi3_server.Listener = l
 
 	// 开始tcp服务端侦听
-	go cvi3_server.listen()
+	go cvi3_server.listen(port)
 
 	return nil
 }

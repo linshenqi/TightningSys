@@ -74,18 +74,30 @@ func (cvi3 *CVI3) StartService(port string) error {
 }
 
 // 取得控制器状态
-//func (cvi3 *CVI3) GetControllersStatus(sn string) []ControllerStatus {
-//	status := []ControllerStatus{}
-//	if sn != "" {
-//
-//	} else {
-//
-//	}
-//
-//	for k,v := range cvi3.clients {
-//
-//	}
-//}
+func (cvi3 *CVI3) GetControllersStatus(sn string) ([]ControllerStatus, error) {
+	status := []ControllerStatus{}
+	if sn != "" {
+		c, exist := cvi3.clients[sn]
+		if !exist {
+			return status, errors.New("controller not found")
+		} else {
+			s := ControllerStatus{}
+			s.SN = sn
+			s.Status = c.GetStatus()
+			status = append(status, s)
+			return status, nil
+		}
+	} else {
+		for k, v := range cvi3.clients {
+			s := ControllerStatus{}
+			s.SN = k
+			s.Status = v.GetStatus()
+			status = append(status, s)
+		}
+
+		return status, nil
+	}
+}
 
 // 设置拧接程序
 func (cvi3 *CVI3) PSet(sn string, pset int, workorder_id int, result_id int, count int) (error) {

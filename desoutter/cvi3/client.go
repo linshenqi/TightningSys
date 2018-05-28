@@ -64,6 +64,8 @@ func (client *CVI3Client) Connect() {
 			client.Conn = c
 			break
 		}
+
+		time.Sleep(300 * time.Millisecond)
 	}
 
 	client.Results = ResultQueue{}
