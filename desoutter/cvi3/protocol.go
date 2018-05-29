@@ -96,12 +96,6 @@ type CVI3Result struct {
 	PRC_SST		PRC_SST `xml:"PRC_SST"`
 }
 
-type CVI3CurveFile struct {
-	Result string	`json:"result"`
-	CUR_M []float64 `json:"cur_m"`
-	CUR_W []float64 `json:"cur_w"`
-}
-
 type CVI3Header struct {
 	HDR string
 	MID uint
